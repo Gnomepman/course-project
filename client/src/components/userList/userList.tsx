@@ -168,7 +168,6 @@ const Row = (props: { elem: IUser, getAndSetUsers: () => Promise<void> }) => {
     const handleShowDeletionConfirmation = () => setShowDeletionConfirmation(true);
 
     const confirmDeletion = async (id: string) => {
-        console.log(`deleting ${id}`)
         await fetch(`${BASE_URL}/user/delete/${id}`, {
             method: "DELETE"
         });
