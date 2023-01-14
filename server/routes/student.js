@@ -100,21 +100,19 @@ recordRoutes.route("/student/delete/:id").delete(async (req, response) => {
         port: 465,
         secure: true,
         auth: {
-            user: "derkach782003@ukr.net",
-            pass: "CUv9FI6VK9SIESnR"
+            user: process.env.MAIL_ADRESS,
+            pass: process.env.MAIL_PASS
         }
     })
 
-    let info = await transporter.sendMail({
-        from: 'derkach782003@ukr.net',
+    transporter.sendMail({
+        from: process.env.MAIL_ADRESS,
         to: req.body.email,
         subject: "Повідомлення з університету",
         html: `<h3>Інформація щодо вашого відрахування</h3>
             <p>Повідомляємо, що студент ${req.body.name} ${req.body.surname} був відрахований з нашого університету</p>
         `,
     });
-    console.log("Message sent: %s", info.messageId);
-    console.log("Preview URL: %s", nodemailer.getTestMessageUrl(info));
 });
 
 module.exports = recordRoutes;

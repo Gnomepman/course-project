@@ -103,13 +103,13 @@ recordRoutes.route("/professor/delete/:id").delete(async (req, response) => {
         port: 465,
         secure: true,
         auth: {
-            user: "derkach782003@ukr.net",
-            pass: "CUv9FI6VK9SIESnR"
+            user: process.env.MAIL_ADRESS,
+            pass: process.env.MAIL_PASS
         }
     })
 
-    await transporter.sendMail({
-        from: 'derkach782003@ukr.net',
+    transporter.sendMail({
+        from: process.env.MAIL_ADRESS,
         to: req.body.email,
         subject: "Повідомлення з університету",
         html: `<h3>Інформація щодо вашого звільнення</h3>
