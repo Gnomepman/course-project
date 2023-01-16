@@ -268,7 +268,7 @@ const Row = (props: { elem: ISubject, getAndSetSubjects: () => Promise<void> }) 
             </Modal>
             <Modal show={showAddProfessor} onHide={handleAddProfessorModalClose}>
                 <Modal.Header closeButton>
-                    <Modal.Title>Assign professor to the group</Modal.Title>
+                    <Modal.Title>Assign professor to the subject</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
                     <div style={{ overflowY: "scroll", maxHeight: "70vh" }}>
